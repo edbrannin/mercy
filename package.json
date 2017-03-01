@@ -1,4 +1,11 @@
 {
+  "config": {
+    "neutrino": {
+      "devServer": {
+        "port": 4321
+      }
+    }
+  },
   "devDependencies": {
     "neutrino": "^4.3.0",
     "neutrino-preset-web": "^4.2.3"
