@@ -1,9 +1,10 @@
+const moment = require("moment");
+
+
 const app = document.createElement('main');
-const text = document.createTextNode('Hello world!');
 
 document.title = "54-Day Rosary Novena"
 
-app.appendChild(text);
 document.getElementById('root').appendChild(app);
 
 const mysteries = [
@@ -14,10 +15,35 @@ const mysteries = [
 
 function currentDay() {
   //Temporarily hardcode start to Ash Wednesday, 2017
-  const startDay = null;
-  const today = null;
-  const dayIndex = 0;
+  const ashWeds = moment("2017-03-01");
+  const today = moment();
+  const dayIndex = today.diff(ashWeds, 'days') // 0
   return dayIndex;
 }
 
+function additionType(dayIndex) {
+  if (dayIndex < 26) {
+    return "Petition";
+  } else if (dayIndex < 54) {
+    return "Thanksgiving";
+  } else {
+    return "Done";
+  }
+}
+
+function mysteriesFor(dayIndex) {
+  return mysteries[dayIndex % mysteries.length];
+}
+
+[
+  "Day " + (currentDay() + 1),
+  "Mysteries: " + mysteriesFor(currentDay()),
+  "Addition Type: " + additionType(currentDay()),
+].forEach(function(i) {
+  console.log(i);
+  const p = document.createElement("p")
+  const e = document.createTextNode(i);
+  p.appendChild(e);
+  app.appendChild(p);
+});
 
