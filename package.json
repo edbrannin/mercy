@@ -1,5 +1,8 @@
 {
   "config": {
+    "presets": [
+      "neutrino-preset-web"
+    ],
     "neutrino": {
       "devServer": {
         "port": 4321
@@ -11,8 +14,8 @@
     "neutrino-preset-web": "^4.2.3"
   },
   "scripts": {
-    "start": "neutrino start --presets neutrino-preset-web",
-    "build": "neutrino build --presets neutrino-preset-web"
+    "start": "neutrino start",
+    "build": "neutrino build"
   },
   "dependencies": {
     "moment": "^2.17.1"
