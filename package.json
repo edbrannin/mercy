@@ -2,5 +2,9 @@
   "devDependencies": {
     "neutrino": "^4.3.0",
     "neutrino-preset-web": "^4.2.3"
+  },
+  "scripts": {
+    "start": "neutrino start --presets neutrino-preset-web",
+    "build": "neutrino build --presets neutrino-preset-web"
   }
 }
