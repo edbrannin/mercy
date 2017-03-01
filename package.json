@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "neutrino": "^4.3.0",
+    "neutrino-preset-web": "^4.2.3"
+  }
+}
