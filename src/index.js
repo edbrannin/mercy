@@ -21,11 +21,14 @@ function currentDay() {
   return dayIndex;
 }
 
-function additionType(dayIndex) {
+funciton dayInfo(flavor, prayer) {
+  return { flavor: flavor, prayer: prayer };
+
+function dayData(dayIndex) {
   if (dayIndex < 26) {
-    return "Petition";
+    return dayInfo("Petition", "Blessed Mother, hear my plea and bring it before the throne of your Son, my Lord, Jesus Christ. Please look with favor on this devotion, and grant me [say your intention here.] I ask these things of you, my Mother, in the name of the Father, and of the Son, and of the Holy Spirit. Amen.");
   } else if (dayIndex < 54) {
-    return "Thanksgiving";
+    return dayInfo("Thanksgiving", "Blessed Mother, thank you for hearing my prayer and and interceding on my behalf. Mary, Mother of my Soul, be with me all my days, and accept my humble thanks for your many gifts, which I accept in the name of the Father, and of the Son, and of the Holy Spirit. Amen.");
   } else {
     return "Done";
   }
@@ -35,14 +38,16 @@ function mysteriesFor(dayIndex) {
   return mysteries[dayIndex % mysteries.length];
 }
 
+const day = dayData(dayIndex)
+
 // Petition Prayer (27 Days): Blessed Mother, hear my plea and bring it before the throne of your Son, my Lord, Jesus Christ. Please look with favor on this devotion, and grant me [say your intention here.] I ask these things of you, my Mother, in the name of the Father, and of the Son, and of the Holy Spirit. Amen.
 // Thanksgiving Prayer (27 Days): Blessed Mother, thank you for hearing my prayer and and interceding on my behalf. Mary, Mother of my Soul, be with me all my days, and accept my humble thanks for your many gifts, which I accept in the name of the Father, and of the Son, and of the Holy Spirit. Amen.
 
 [
   "Day " + (currentDay() + 1),
   "Mysteries: " + mysteriesFor(currentDay()),
-  "Addition Type: " + additionType(currentDay()),
-  "Blessed Mother, hear my plea and bring it before the throne of your Son, my Lord, Jesus Christ. Please look with favor on this devotion, and grant me [say your intention here.] I ask these things of you, my Mother, in the name of the Father, and of the Son, and of the Holy Spirit. Amen."
+  "Addition Type: " + day.flavor,
+  day.prayer,
 ].forEach(function(i) {
   console.log(i);
   const p = document.createElement("p")
