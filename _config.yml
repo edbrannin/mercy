@@ -1,0 +1,6 @@
+exclude:
+  - ".rvmrc"
+  - ".rbenv-version"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "Rakefile"
