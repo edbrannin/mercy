@@ -1,6 +1,7 @@
 .mysteries h2,
 #closing-prayer h4,
-#toc li {
+#toc li,
+#intention-type {
   text-transform: capitalize;
 }
 
