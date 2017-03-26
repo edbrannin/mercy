@@ -1,0 +1,21 @@
+.mysteries h2,
+#closing-prayer h4,
+#toc li {
+  text-transform: capitalize;
+}
+
+ol.mysteries li .name {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+ol.mysteries li .name:before {
+  content: "The ";
+}
+
+
+ol.mysteries li .fruit {
+  font-style: italic;
+}
+ol.mysteries li .fruit:before {
+  content: "Fruit of the Mystery: ";
+}

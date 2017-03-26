@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+    <link href="src/site.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+    <script type="text/javascript">
+mysteries = {{ site.data.mysteries | jsonify }};
+    </script>
+
+    <div id="root" />
+
+    <ol id="toc">
+      {% for item in site.data.mysteries %}
+      <li><a href="#{{item[0]}}">{{ item[0] }}</a></li>
+      {% endfor %}
+      <li><a href="#closing-prayer">Closing Prayer</a></li>
+    </ol>
+
+    <div id="day-number"></div>
+    <div id="mysteries"></div>
+    <div id="intention-type"></div>
+
+    {% for item in site.data.mysteries %}
+    {% assign category = item[0] %}
+    {% assign mysteries = item[1] %}
+    <div class="mysteries {{category}}" id="{{category}}">
+      <h2>{{category}}</h2>
+      <ol class="mysteries">
+        {% for mystery in mysteries %}
+        <li>
+          <div class="name">{{ mystery.name }}</div>
+          <div class="fruit">{{ mystery.fruit }}</div>
+          <div class="reflection">{{ mystery.reflection | markdownify | smartify }}</div>
+        </li>
+        {% endfor %}
+      </ol>
+      <div><a href="#closing">To Closing Prayer</a></div>
+    </div>
+    {% endfor %}
+
+    <div id="closing-prayer">
+      {% for item in site.data.closing_prayer %}
+      {% assign phase = item[0] %}
+      {% assign value = item[1] %}
+
+      {% for item in value %}
+      {% assign tense = item[0] %}
+      {% assign prayer = item[1] %}
+      <p class="{{phase}} {{tense}}">
+        <h4>{{ phase }} ({{tense}})</h4>
+        {{ prayer }}
+      </p>
+      {% endfor %}
+
+      {% endfor %}
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
+<script src="src/index.js"></script>
+
+  </body>
+</html>
