@@ -52,4 +52,8 @@ jQuery(function() {
 
   jQuery('#closing-prayer div').hide().filter('.' + intentionType(currentDay())).show();
 
+  jQuery('.to-closing-prayer').click(function() {
+    jQuery('.nav a').removeClass('active').filter('.to-closing-prayer').addClass('active');
+  });
+
 });
