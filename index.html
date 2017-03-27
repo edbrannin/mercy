@@ -5,15 +5,22 @@ layout: page
 mysteries = {{ site.data.mysteries | jsonify }};
 </script>
 
-<div id="day-number"></div>
-<div id="mysteries"></div>
-<div id="intention-type"></div>
+<div class="row align-self-center">
+  <div id="day-number" class="col bg-info text-white"></div>
+  <div id="mysteries" class="col bg-info text-white"></div>
+  <div id="intention-type" class="col bg-info text-white"></div>
+</div>
+
+
+<div>
+&nbsp;
+</div>
 
 <ol id="toc" class="nav nav-pills nav-fill">
   {% for item in site.data.mysteries %}
   <li class="nav-item"><a class="nav-link" href="#{{item[0]}}" data-toggle="pill">{{ item[0] }}</a></li>
   {% endfor %}
-  <li class="nav-item"><a class="nav-link active" href="#closing-prayer" data-toggle="pill">Closing Prayer</a></li>
+  <li class="nav-item"><a class="nav-link active to-closing-prayer" href="#closing-prayer" data-toggle="pill">Closing Prayer</a></li>
 </ol>
 
 <div class="tab-content" role="tabpanel">
@@ -31,7 +38,9 @@ mysteries = {{ site.data.mysteries | jsonify }};
     </li>
     {% endfor %}
   </ol>
-  <div><a href="#closing">To Closing Prayer</a></div>
+  <div class="row justify-content-center">
+    <a href="#closing-prayer" class="btn btn-primary to-closing-prayer" data-toggle="pill">To Closing Prayer</a>
+  </div>
 </div>
 {% endfor %}
 
