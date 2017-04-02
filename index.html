@@ -17,10 +17,10 @@ mysteries = {{ site.data.mysteries | jsonify }};
 </div>
 
 <ol id="toc" class="nav nav-pills nav-fill">
+  <!-- TODO add class="active" for suggested mystey of the day -->
   {% for item in site.data.mysteries %}
   <li class="nav-item"><a class="nav-link" href="#{{item[0]}}" data-toggle="pill">{{ item[0] }}</a></li>
   {% endfor %}
-  <li class="nav-item"><a class="nav-link active to-closing-prayer" href="#closing-prayer" data-toggle="pill">Closing Prayer</a></li>
 </ol>
 
 <div class="tab-content" role="tabpanel">
@@ -38,13 +38,11 @@ mysteries = {{ site.data.mysteries | jsonify }};
     </li>
     {% endfor %}
   </ol>
-  <div class="row justify-content-center">
-    <a href="#closing-prayer" class="btn btn-primary to-closing-prayer" data-toggle="pill">To Closing Prayer</a>
-  </div>
 </div>
 {% endfor %}
 
-<div id="closing-prayer" class="tab-pane show active">
+<div id="closing-prayer">
+  <h2>Closing Prayer</h2>
   {% for item in site.data.closing_prayer %}
   {% assign phase = item[0] %}
   {% assign value = item[1] %}
