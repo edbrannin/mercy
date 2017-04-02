@@ -1,7 +1,7 @@
 const mysteries = [
-  "Joyful",
-  "Sorrowful",
-  "Glorious"
+  "joyful",
+  "sorrowful",
+  "glorious"
 ];
 
 function currentDay() {
@@ -28,29 +28,25 @@ function mysteriesFor(dayIndex) {
 
 
 jQuery(function() {
+  const todayIndex = currentDay();
 
-  document.getElementById('day-number').appendChild(
-    document.createTextNode(
-      "Day " + (currentDay() + 1)
-    )
+  jQuery('#day-number').text(
+    "Day " + (todayIndex + 1)
   );
 
-  document.getElementById('mysteries').appendChild(
-    document.createTextNode(
-
-      "Mysteries: " + mysteriesFor(currentDay())
-    )
+  const mysteries = mysteriesFor(todayIndex);
+  jQuery('#mysteries').text(
+    "Mysteries: " + mysteriesFor(todayIndex)
   );
+  jQuery('#toc .' + mysteries).tab('show');
 
-  document.getElementById('intention-type').appendChild(
-    document.createTextNode(
-      "Intention Type: " + intentionType(currentDay())
-    )
+  jQuery('#intention-type').text(
+    "Intention Type: " + intentionType(todayIndex)
   );
 
   // document.getElementById('closing-prayer').appendChild()
 
-  jQuery('#closing-prayer div').hide().filter('.' + intentionType(currentDay())).show();
+  jQuery('#closing-prayer div').hide().filter('.' + intentionType(todayIndex)).show();
 
   jQuery('.to-closing-prayer').click(function() {
     jQuery('.nav a').removeClass('active').filter('.to-closing-prayer').addClass('active');

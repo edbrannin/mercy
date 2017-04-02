@@ -19,7 +19,7 @@ mysteries = {{ site.data.mysteries | jsonify }};
 <ol id="toc" class="nav nav-pills nav-fill">
   <!-- TODO add class="active" for suggested mystey of the day -->
   {% for item in site.data.mysteries %}
-  <li class="nav-item"><a class="nav-link" href="#{{item[0]}}" data-toggle="pill">{{ item[0] }}</a></li>
+  <li class="nav-item"><a class="nav-link {{ item[0] }}" href="#{{item[0]}}" data-toggle="pill">{{ item[0] }}</a></li>
   {% endfor %}
 </ol>
 
