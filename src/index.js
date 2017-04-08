@@ -40,16 +40,28 @@ jQuery(function() {
   );
   jQuery('#toc .' + mysteries).tab('show');
 
+  const todayIntentionType = intentionType(todayIndex);
   jQuery('#intention-type').text(
-    "Intention Type: " + intentionType(todayIndex)
+    "Intention Type: " + todayIntentionType
   );
 
   // document.getElementById('closing-prayer').appendChild()
 
-  jQuery('#closing-prayer div').hide().filter('.' + intentionType(todayIndex)).show();
-
-  jQuery('.to-closing-prayer').click(function() {
-    jQuery('.nav a').removeClass('active').filter('.to-closing-prayer').addClass('active');
-  });
+  jQuery('#closing-prayer div.prayer').
+    hide().
+      //each(function(){console.log("Hide", this)}).
+        filter('.' + todayIntentionType).
+          //each(function(){console.log("Show",this)}).
+            show();
+  //jQuery('#closing-prayer ol li').hide().filter('.' + todayIntentionType).show();
+  jQuery('#closing-prayer ol li').
+    hide().
+      //each(function(){console.log("Hide", this)}).
+        filter('.' + todayIntentionType).
+          //each(function(){console.log("Show",this)}).
+            show();
+  jQuery('#closing-toc a.singular.' + todayIntentionType).
+    each(function(){console.log("Tab", this)}).
+      tab('show');
 
 });
