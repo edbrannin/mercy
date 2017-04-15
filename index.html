@@ -1,13 +1,13 @@
 ---
 layout: page
+title: Divine Mercy Novena
 ---
 <script type="text/javascript">
-mysteries = {{ site.data.mysteries | jsonify }};
+prayers = {{ site.data.prayers | jsonify }};
 </script>
 
 <div class="row align-self-center">
   <div id="day-number" class="col bg-info text-white"></div>
-  <div id="mysteries" class="col bg-info text-white"></div>
   <div id="intention-type" class="col bg-info text-white"></div>
 </div>
 
@@ -16,67 +16,24 @@ mysteries = {{ site.data.mysteries | jsonify }};
 &nbsp;
 </div>
 
-<ol id="toc" class="nav nav-pills nav-fill" role="tablist">
-  {% for item in site.data.mysteries %}
-  {% assign category = item[0] %}
+<ol id="toc" class="nav nav-pills nav-fill d-flex flex-wrap" role="tablist">
+  {% for item in site.data.prayers.novena %}
   <li class="nav-item">
-    <a class="nav-link {{ item[0] }}" href="#{{item[0]}}" data-toggle="pill">{{ category }}</a>
+    <a class="nav-link day{{ forloop.index0 }}" href="#day{{ forloop.index0 }}" data-toggle="pill">{{ item.name }}</a>
   </li>
   {% endfor %}
 </ol>
 
 <div class="tab-content" role="tabpanel">
-{% for item in site.data.mysteries %}
-{% assign category = item[0] %}
-{% assign mysteries = item[1] %}
-<div class="mysteries {{category}} tab-pane" id="{{category}}">
-  <h2>{{category}}</h2>
-  <ol class="mysteries">
-    {% for mystery in mysteries %}
-    <li>
-      <div class="name">{{ mystery.name }}</div>
-      <div class="fruit">{{ mystery.fruit }}</div>
-      <div class="reflection">{{ mystery.reflection | markdownify | smartify }}</div>
-    </li>
-    {% endfor %}
-  </ol>
+  {% for day in site.data.prayers.novena %}
+<div class="mysteries tab-pane" id="day{{ forloop.index0 }}">
+  <h2>{{ day.name }}</h2>
+  <h3>Intention</h3>
+  <div class="intention">{{ day.intention | markdownify | smartify }}</div>
+  <h3>Prayer</h3>
+  <div class="prayer">{{ day.prayer | markdownify | smartify }}</div>
 </div>
 {% endfor %}
-
-<div id="closing-prayer">
-  <h2>Closing Prayer</h2>
-
-  <!-- TODO Add a macro for this iteration? -->
-  <ol id="closing-toc" class="nav nav-pills nav-fill" role="tablist">
-    {% for item in site.data.closing_prayer %}
-    {% assign phase = item[0] %}
-    {% assign value = item[1] %}
-    {% for item in value %}
-    {% assign arity = item[0] %}
-    {% assign prayer = item[1] %}
-    <li class="nav-item {{ phase }} {{arity}}">
-      <a class="nav-link {{ phase }} {{arity}}" href="#{{ phase }}-{{ arity }}" data-toggle="pill">{{ arity }}</a>
-    </li>
-    {% endfor %}
-    {% endfor %}
-  </ol>
-
-  <div class="tab-content">
-    {% for item in site.data.closing_prayer %}
-    {% assign phase = item[0] %}
-    {% assign value = item[1] %}
-
-    {% for item in value %}
-    {% assign arity = item[0] %}
-    {% assign prayer = item[1] %}
-    <div class="{{phase}} {{arity}} tab-pane" id="{{ phase }}-{{ arity }}" role="tabpanel">
-      <h4>{{ phase }} ({{arity}})</h4>
-      <p>{{ prayer }}</p>
-    </div>
-    {% endfor %}
-    {% endfor %}
-  </div>
-</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
 <script src="src/index.js"></script>
