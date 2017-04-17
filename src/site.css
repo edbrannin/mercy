@@ -22,3 +22,22 @@ ol.mysteries li .fruit {
 ol.mysteries li .fruit:before {
   content: "Fruit of the Mystery: ";
 }
+
+blockquote.intention {
+  font-weight: bold;
+}
+
+blockquote :last-child {
+  margin-bottom: 0;
+}
+
+.footer {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 1em;
+}
+
+.footer :last-child {
+  margin-bottom: 0;
+}
+
