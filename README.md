@@ -1,14 +1,13 @@
-# 54-Day Rosary Novena
+# Divine Mercy Novena Tracker
 
-Keeping track of the 54-day rosary novena
-
+Keeping track of the Divine Mercy Novena.
 
 ## Credits
 
-* Friuts & Reflections by: Patrice Fagnant-MacArthur
-    * http://catholicexchange.com/the-fruits-of-the-mysteries-of-the-rosary
-    * http://spiritualwomanthoughts.blogspot.com/2009/07/fruits-of-mysteries-of-rosary.html
-* Petition & Thanksgiving prayers adapted from: Thomas L. McDonald
-    * https://thomaslmcdonald.wordpress.com/2013/08/05/the-54-day-rosary-novena/
-    * http://www.patheos.com/blogs/godandthemachine/a-54-day-rosary-novena/
+Prayer text from https://www.ewtn.com/Devotionals/mercy/novena.htm
 
+## TODO
+
+* Support for arbitrary future years (currently only automaticlaly calculates for 2017)
+* Bump day-change a few hours (so night-owls can pray at 1 AM without having to click back a day)
+* Print CSS for all 9 days of prayer

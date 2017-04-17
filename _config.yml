@@ -5,3 +5,4 @@ exclude:
   - "Gemfile.lock"
   - "Rakefile"
 title: 54-Day Rosary Novena
+google_analytics_id: UA-25918218-2
