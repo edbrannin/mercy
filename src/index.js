@@ -1,6 +1,6 @@
 function currentDay() {
   //Temporarily hardcode start to Ash Wednesday, 2017
-  const goodFriday = moment("2017-04-14");
+  const goodFriday = moment().easter().subtract(3, 'days');
   const today = moment();
   const dayIndex = today.diff(goodFriday, 'days') // 0
   return dayIndex;
