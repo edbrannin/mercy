@@ -1,0 +1,32 @@
+{
+  "name": "divine-mercy-novena",
+  "version": "1.0.0",
+  "description": "Divine Mercy Novena tracker",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "watch": "npx @11ty/eleventy --watch",
+    "test": "echo No tests yet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edbrannin/mercy.git"
+  },
+  "keywords": [
+    "catholic",
+    "divine-mercy"
+  ],
+  "author": "Ed Brannin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edbrannin/mercy/issues"
+  },
+  "homepage": "https://github.com/edbrannin/mercy#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

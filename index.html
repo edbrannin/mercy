@@ -3,7 +3,7 @@ layout: page
 title: Divine Mercy Novena
 ---
 <script type="text/javascript">
-prayers = {{ site.data.prayers | jsonify }};
+prayers = {{ prayers }};
 </script>
 
 <div class="row align-self-center">
@@ -17,7 +17,7 @@ prayers = {{ site.data.prayers | jsonify }};
 </div>
 
 <ol id="toc" class="nav nav-pills nav-fill d-flex flex-wrap" role="tablist">
-  {% for item in site.data.prayers.novena %}
+  {% for item in prayers.novena %}
   <li class="nav-item">
     <a class="nav-link day{{ forloop.index0 }}" href="#day{{ forloop.index0 }}" data-toggle="pill">{{ item.name }}</a>
   </li>
@@ -25,7 +25,7 @@ prayers = {{ site.data.prayers | jsonify }};
 </ol>
 
 <div class="tab-content" role="tabpanel">
-  {% for day in site.data.prayers.novena %}
+  {% for day in prayers.novena %}
 <div class="mysteries tab-pane" id="day{{ forloop.index0 }}">
   <h2>{{ day.name }}</h2>
   <blockquote class="blockquote intention">{{ day.intention | markdownify | smartify }}</blockquote>
