@@ -3,11 +3,11 @@ function currentDay() {
   const goodFriday = moment().easter().subtract(2, 'days');
   const today = moment();
   const dayIndex = today.diff(goodFriday, 'days') // 0
-  return dayIndex;
+  return dayIndex % prayers.novena.length;
 }
 
 function dayData(dayIndex) {
-  return prayers.novena[dayIndex % prayers.novena.length];
+  return prayers.novena[dayIndex];
 }
 
 
